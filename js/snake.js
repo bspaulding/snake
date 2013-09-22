@@ -134,7 +134,7 @@ Snake.start = function(root) {
 
   var apple = Snake.apple(position);
   var snakeLength = apple.map(1).scan(9, Snake.add2);
-  var score = apple.map(1).scan(0, function(x,y) { return x + y; });
+  var score = apple.map(1).scan(-1, Snake.add2);
   var snake = position.slidingWindowBy(snakeLength);
 
   snake.onValue(Snake.drawSnake);
